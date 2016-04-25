@@ -1,4 +1,4 @@
-# Install Google Test framework on Windows via compilation
+# Google Test framework Setup Guide
 
 ## Requirements
 * Ubuntu Linux x86_64
@@ -19,7 +19,7 @@
 * msys-base -->
 
 
-## Steps
+## Steps of install on Linux
 ### Get the google test repo:
 ```Bash
 $ git clone https://github.com/google/googletest.git
@@ -83,3 +83,7 @@ Run it, you will get the message:
 [==========] 1 test from 1 test case ran. (0 ms total)
 [  PASSED  ] 1 test.
 ```
+
+
+## Steps of install on Windows
+TBD
