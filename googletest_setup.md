@@ -25,33 +25,21 @@
 $ git clone https://github.com/google/googletest.git
 ```
 
-### Compile Google Test Library and install it:
+### Compile Google Test static library :
 ```Bash
-$ cd googletest/googletest
+$ cd googletest
 $ cmake CMakeLists.txt
 $ make
-$ sudo cp -fr include/gtest /usr/local/include
-$ sudo cp -a *.so /usr/local/lib
 ```
 
-### Compile Google Mock Library and install it:
-```Bash
-$ cd googletest/googletest
-$ cmake CMakeLists.txt
-$ make
-$ sudo cp -fr include/gtest /usr/local/include
-$ sudo cp -a *.so /usr/local/lib
-```
+By default, 2 static library files will be generated:
+* googlemock/gtest/libgtest.a
+* googlemock/gtest/libgtest_main.a
+* googlemock/libgmock.a
+* googlemock/libgtest_main.a
 
-### Update ldconfig path:
-Make sure /usr/local/lib can be recognized by ldconfig:
-```Bash
-$ sudo echo "/usr/local/lib\n" > /etc/ld.so.conf.d/googletest.conf
-$ sudo ldconfig
-```
-
-## Google Test Library Demo
-New a test.cpp, with the following content:
+### Google Test Library Demo
+New a gtest.cpp, with the following content:
 ```Cpp
 #include <gtest/gtest.h>
 TEST(MathTest, TwoPlusTwoEqualsFour) {
@@ -66,8 +54,8 @@ int main(int argc, char **argv) {
 
 Compile it:
 ```Bash
-$ g++ -I/usr/local/include/gtest -L/usr/local/lib test.cpp  -lgtest -o test
-$ ./test
+$ g++ -I<path/to/googletest/include> gtest.cpp <path/to/libgtest.a> -o gtest
+$ ./gtest
 ```
 
 Run it, you will get the message:
@@ -84,6 +72,27 @@ Run it, you will get the message:
 [  PASSED  ] 1 test.
 ```
 
+### Google Mock Library Demo
+Compile it:
+```Bash
+$ g++ -I<path/to/googletest/include> -I<path/to/googlemock/include> HelloWorldTest.cpp HelloWorld.cpp <path/to/libgmock_main.a> -o gmock
+$ ./gmock
+```
+
+Run it, you will get the message:
+```
+Running main() from gmock_main.cc
+[==========] Running 1 test from 1 test case.
+[----------] Global test environment set-up.
+[----------] 1 test from HelloWorldTest
+[ RUN      ] HelloWorldTest.getMessage
+[       OK ] HelloWorldTest.getMessage (0 ms)
+[----------] 1 test from HelloWorldTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test case ran. (0 ms total)
+[  PASSED  ] 1 test.
+```
 
 ## Steps of install on Windows
 TBD
