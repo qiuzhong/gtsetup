@@ -27,28 +27,16 @@ $ git clone https://github.com/google/googletest.git
 
 ### Compile Google Test Library and install it:
 ```Bash
-$ cd googletest/googletest
+$ cd googletest
 $ cmake CMakeLists.txt
 $ make
-$ sudo cp -fr include/gtest /usr/local/include
-$ sudo cp -a *.so /usr/local/lib
 ```
 
-### Compile Google Mock Library and install it:
-```Bash
-$ cd googletest/googletest
-$ cmake CMakeLists.txt
-$ make
-$ sudo cp -fr include/gtest /usr/local/include
-$ sudo cp -a *.so /usr/local/lib
-```
-
-### Update ldconfig path:
-Make sure /usr/local/lib can be recognized by ldconfig:
-```Bash
-$ sudo echo "/usr/local/lib\n" > /etc/ld.so.conf.d/googletest.conf
-$ sudo ldconfig
-```
+By default, 2 static library files will be generated:
+* googlemock/gtest/libgtest.a
+* googlemock/gtest/libgtest_main.a
+* googlemock/libgmock.a
+* googlemock/libgtest_main.a
 
 ## Google Test Library Demo
 New a test.cpp, with the following content:
@@ -66,8 +54,8 @@ int main(int argc, char **argv) {
 
 Compile it:
 ```Bash
-$ g++ -I/usr/local/include/gtest -L/usr/local/lib test.cpp  -lgtest -o test
-$ ./test
+$ g++ -I<path/to/googletest/include> <path/to/libgtest.a> -o gtest
+$ ./gtest
 ```
 
 Run it, you will get the message:
