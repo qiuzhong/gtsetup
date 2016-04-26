@@ -72,6 +72,27 @@ Run it, you will get the message:
 [  PASSED  ] 1 test.
 ```
 
+### Google Mock Library Demo
+Compile it:
+```Bash
+$ g++ -I<path/to/googletest/include> -I<path/to/googlemock/include> HelloWorldTest.cpp HelloWorld.cpp <path/to/libgmock_main.a> -o gmock
+$ ./gmock
+```
+
+Run it, you will get the message:
+```
+Running main() from gmock_main.cc
+[==========] Running 1 test from 1 test case.
+[----------] Global test environment set-up.
+[----------] 1 test from HelloWorldTest
+[ RUN      ] HelloWorldTest.getMessage
+[       OK ] HelloWorldTest.getMessage (0 ms)
+[----------] 1 test from HelloWorldTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test case ran. (0 ms total)
+[  PASSED  ] 1 test.
+```
 
 ## Steps of install on Windows
 TBD
