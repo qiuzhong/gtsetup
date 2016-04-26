@@ -28,7 +28,7 @@ $ git clone https://github.com/google/googletest.git
 ### Compile Google Test Library and install it:
 ```Bash
 $ cd googletest/googletest
-$ cmake
+$ cmake CMakeLists.txt
 $ make
 $ sudo cp -fr include/gtest /usr/local/include
 $ sudo cp -a *.so /usr/local/lib
@@ -37,7 +37,7 @@ $ sudo cp -a *.so /usr/local/lib
 ### Compile Google Mock Library and install it:
 ```Bash
 $ cd googletest/googletest
-$ cmake
+$ cmake CMakeLists.txt
 $ make
 $ sudo cp -fr include/gtest /usr/local/include
 $ sudo cp -a *.so /usr/local/lib
