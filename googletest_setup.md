@@ -25,7 +25,7 @@
 $ git clone https://github.com/google/googletest.git
 ```
 
-### Compile Google Test Library and install it:
+### Compile Google Test static library :
 ```Bash
 $ cd googletest
 $ cmake CMakeLists.txt
@@ -38,8 +38,8 @@ By default, 2 static library files will be generated:
 * googlemock/libgmock.a
 * googlemock/libgtest_main.a
 
-## Google Test Library Demo
-New a test.cpp, with the following content:
+### Google Test Library Demo
+New a gtest.cpp, with the following content:
 ```Cpp
 #include <gtest/gtest.h>
 TEST(MathTest, TwoPlusTwoEqualsFour) {
@@ -54,7 +54,7 @@ int main(int argc, char **argv) {
 
 Compile it:
 ```Bash
-$ g++ -I<path/to/googletest/include> <path/to/libgtest.a> -o gtest
+$ g++ -I<path/to/googletest/include> gtest.cpp <path/to/libgtest.a> -o gtest
 $ ./gtest
 ```
 
